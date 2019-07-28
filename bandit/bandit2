@@ -1,0 +1,13 @@
+bandit2@bandit:~$ ls
+spaces in this filename
+bandit2@bandit:~$ les spaces\ in\ this\ filename 
+.bash_logout             .profile                 
+.bashrc                  spaces in this filename  
+bandit2@bandit:~$ les spaces\ in\ this\ filename 
+-bash: les: command not found
+bandit2@bandit:~$ less spaces\ in\ this\ filename 
+bandit2@bandit:~$ cat spaces\ in\ this\ filename 
+UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+bandit2@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
