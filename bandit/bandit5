@@ -1,0 +1,11 @@
+bandit5@bandit:~/inhere$ find . -type f -seize 1033c | xargs file | grep text
+find: unknown predicate `-seize'
+Try 'find --help' for more information.
+Usage: file [-bcEhikLlNnprsvzZ0] [--apple] [--extension] [--mime-encoding] [--mime-type]
+            [-e testname] [-F separator] [-f namefile] [-m magicfiles] file ...
+       file -C [-m magicfiles]
+       file [--help]
+bandit5@bandit:~/inhere$ find . -type f -size 1033c | xargs file | grep text
+./maybehere07/.file2: ASCII text, with very long lines
+bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
+DXjZPULLxYr17uwoI01bNLQbtFemEgo7
