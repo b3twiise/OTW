@@ -1,0 +1,1 @@
+strings bla | grep =  | egrep  "[[:alnum:]]{32}" | cut -d " " -f 2

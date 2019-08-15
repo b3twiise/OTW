@@ -1,0 +1,9 @@
+bandit7@bandit:~$ grep millionth data.txt | tr [:space:] , | cut -d "," -f 2
+cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+
+grep millionth data.txt		look for the word millionth in data.txt
+
+tr [:space:] ,			turn spaces into commas
+
+cut -d "," -f 2			split throught commas then take field #2

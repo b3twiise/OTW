@@ -1,0 +1,6 @@
+bandit8@bandit:~$ sort data.txt | sort | uniq -u
+UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+
+
+
+sort then get what only happens once
