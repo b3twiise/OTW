@@ -1,0 +1,30 @@
+bandit17:x:11017:11017:bandit level 17:/home/bandit17:/bin/bash
+bandit18:x:11018:11018:bandit level 18:/home/bandit18:/bin/bash
+bandit19:x:11019:11019:bandit level 19:/home/bandit19:/bin/bash
+bandit2:x:11002:11002:bandit level 2:/home/bandit2:/bin/bash
+bandit20:x:11020:11020:bandit level 20:/home/bandit20:/bin/bash
+bandit21:x:11021:11021:bandit level 21:/home/bandit21:/bin/bash
+bandit22:x:11022:11022:bandit level 22:/home/bandit22:/bin/bash
+bandit23:x:11023:11023:bandit level 23:/home/bandit23:/bin/bash
+bandit24:x:11024:11024:bandit level 24:/home/bandit24:/bin/bash
+bandit25:x:11025:11025:bandit level 25:/home/bandit25:/bin/bash
+bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+bandit27:x:11027:11027:bandit level 27:/home/bandit27:/bin/bash
+bandit28:x:11028:11028:bandit level 28:/home/bandit28:/bin/bash
+bandit29:x:11029:11029:bandit level 29:/home/bandit29:/bin/bash
+bandit3:x:11003:11003:bandit level 3:/home/bandit3:/bin/bash
+bandit30:x:11030:11030:bandit level 30:/home/bandit30:/bin/bash
+bandit31:x:11031:11031:bandit level 31:/home/bandit31:/bin/bash
+bandit32:x:11032:11032:bandit level 32:/home/bandit32:/home/bandit32/uppershell
+bandit33:x:11033:11033:bandit level 33:/home/bandit33:/bin/bash
+bandit4:x:11004:11004:bandit level 4:/home/bandit4:/bin/bash
+bandit5:x:11005:11005:bandit level 5:/home/bandit5:/bin/bash
+bandit6:x:11006:11006:bandit level 6:/home/bandit6:/bin/bash
+bandit7:x:11007:11007:bandit level 7:/home/bandit7:/bin/bash
+bandit8:x:11008:11008:bandit level 8:/home/bandit8:/bin/bash
+bandit9:x:11009:11009:bandit level 9:/home/bandit9:/bin/bash
+bandit27-git:x:11527:11527::/home/bandit27-git:/usr/bin/git-shell
+bandit28-git:x:11528:11528::/home/bandit28-git:/usr/bin/git-shell
+bandit29-git:x:11529:11529::/home/bandit29-git:/usr/bin/git-shell
+bandit30-git:x:11530:11530::/home/bandit30-git:/usr/bin/git-shell
+bandit31-git:x:11531:11531::/home/bandit31-git:/usr/bin/git-shell

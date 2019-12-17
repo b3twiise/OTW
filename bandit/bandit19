@@ -1,0 +1,10 @@
+b3twiise@phoenix:~/OTW/bandit$ ssh -l bandit18 bandit.labs.overthewire.org -p 2220 -t bash --norc --noprofile
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit18@bandit.labs.overthewire.org's password: 
+bash-4.4$ python -v
+
+
+bash-4.4$ cat readme 
+IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+bash-4.4$ 

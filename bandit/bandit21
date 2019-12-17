@@ -1,0 +1,9 @@
+bandit20@bandit:~$ cat /etc/bandit_pass/bandit20 |  nc -l localhost -p 9003 &
+[10] 22874
+bandit20@bandit:~$ ./suconnect 9003
+Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+Password matches, sending next password
+gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+[10]-  Done                    cat /etc/bandit_pass/bandit20 | nc -l localhost -p 9003
+bandit20@bandit:~$ 
+

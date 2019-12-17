@@ -1,0 +1,130 @@
+Repo is empty. So we look around. try logs, branches...
+Then tags. We find "secret" and we do git show secret
+
+
+
+
+bandit30@bandit:~$ ls
+bandit30@bandit:~$ cd /tmp
+bandit30@bandit:/tmp$ mkdir phone
+mkdir: cannot create directory ‘phone’: File exists
+bandit30@bandit:/tmp$ mkdir fridge
+bandit30@bandit:/tmp$ cd fridge
+bandit30@bandit:/tmp/fridge$ ls
+bandit30@bandit:/tmp/fridge$ git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
+Cloning into 'repo'...
+Could not create directory '/home/bandit30/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/home/bandit30/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit30-git@localhost's password: 
+remote: Counting objects: 4, done.
+remote: Total 4 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (4/4), done.
+bandit30@bandit:/tmp/fridge$ ls
+repo
+bandit30@bandit:/tmp/fridge$ cd repo
+bandit30@bandit:/tmp/fridge/repo$ ls
+README.md
+bandit30@bandit:/tmp/fridge/repo$ cat README.md 
+just an epmty file... muahaha
+bandit30@bandit:/tmp/fridge/repo$ git log
+commit 3aa4c239f729b07deb99a52f125893e162daac9e
+Author: Ben Dover <noone@overthewire.org>
+Date:   Tue Oct 16 14:00:44 2018 +0200
+
+    initial commit of README.md
+bandit30@bandit:/tmp/fridge/repo$ git branch -r
+  origin/HEAD -> origin/master
+  origin/master
+bandit30@bandit:/tmp/fridge/repo$ ls
+README.md
+bandit30@bandit:/tmp/fridge/repo$ git checkout
+Your branch is up-to-date with 'origin/master'.
+bandit30@bandit:/tmp/fridge/repo$ ls -la
+total 16
+drwxr-sr-x 3 bandit30 root 4096 Dec 17 07:48 .
+drwxr-sr-x 3 bandit30 root 4096 Dec 17 07:47 ..
+drwxr-sr-x 8 bandit30 root 4096 Dec 17 07:49 .git
+-rw-r--r-- 1 bandit30 root   30 Dec 17 07:48 README.md
+bandit30@bandit:/tmp/fridge/repo$ cd .git
+bandit30@bandit:/tmp/fridge/repo/.git$ ls
+branches  config  description  HEAD  hooks  index  info  logs  objects  packed-refs  refs
+bandit30@bandit:/tmp/fridge/repo/.git$ grep pass ./*
+grep: ./branches: Is a directory
+grep: ./hooks: Is a directory
+grep: ./info: Is a directory
+grep: ./logs: Is a directory
+grep: ./objects: Is a directory
+grep: ./refs: Is a directory
+bandit30@bandit:/tmp/fridge/repo/.git$ man grep 
+bandit30@bandit:/tmp/fridge/repo/.git$ grep pass ./* -r
+bandit30@bandit:/tmp/fridge/repo/.git$ grep pass . -r
+bandit30@bandit:/tmp/fridge/repo/.git$ grep pass ./ -r
+bandit30@bandit:/tmp/fridge/repo/.git$ ls branches/
+bandit30@bandit:/tmp/fridge/repo/.git$ ls -la branches
+total 8
+drwxr-sr-x 2 bandit30 root 4096 Dec 17 07:47 .
+drwxr-sr-x 8 bandit30 root 4096 Dec 17 07:49 ..
+bandit30@bandit:/tmp/fridge/repo/.git$ cat config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = ssh://bandit30-git@localhost/home/bandit30-git/repo
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+bandit30@bandit:/tmp/fridge/repo/.git$ ls
+branches  config  description  HEAD  hooks  index  info  logs  objects  packed-refs  refs
+bandit30@bandit:/tmp/fridge/repo/.git$ ls hooks
+applypatch-msg.sample  post-update.sample     pre-commit.sample          pre-push.sample    pre-receive.sample
+commit-msg.sample      pre-applypatch.sample  prepare-commit-msg.sample  pre-rebase.sample  update.sample
+bandit30@bandit:/tmp/fridge/repo/.git$ cat index
+DIRC]�z-'v�\]�z-'v�\O���+��!�L4 ]R?����7w       README.mdTREE1 0
+��Y.�U�����36:F��J5��Mk(�>�[?-����{bandit30@bandit:/tmp/fridge/repo/.git$ cat index | xxd -p
+4449524300000002000000015df87a2d2776d85c5df87a2d2776d85c0000
+fb0300084fdc000081a400002b16000000000000001e029ba421ef4c3420
+5d52133f8da3d69bc18537770009524541444d452e6d6400545245450000
+0019003120300abd85592e905590f084b8df33363a46f9ac4aa7081235b0
+f14d6b28e03ef35b3f2daf15e08f19a67b
+bandit30@bandit:/tmp/fridge/repo/.git$ ls info
+exclude
+bandit30@bandit:/tmp/fridge/repo/.git$ cat info/exclude
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+bandit30@bandit:/tmp/fridge/repo/.git$ git tag
+secret
+bandit30@bandit:/tmp/fridge/repo/.git$ git checkout secret
+fatal: This operation must be run in a work tree
+bandit30@bandit:/tmp/fridge/repo/.git$ cd ../..
+bandit30@bandit:/tmp/fridge$ ls
+repo
+bandit30@bandit:/tmp/fridge$ cd repo
+bandit30@bandit:/tmp/fridge/repo$ git checkout secret
+fatal: reference is not a tree: secret
+bandit30@bandit:/tmp/fridge/repo$ git tag --help
+bandit30@bandit:/tmp/fridge/repo$ git fetch tag secret
+fatal: 'tag' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+bandit30@bandit:/tmp/fridge/repo$ git fetch secret
+fatal: 'secret' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+bandit30@bandit:/tmp/fridge/repo$ git show secret
+47e603bb428404d265f59c42920d81e5

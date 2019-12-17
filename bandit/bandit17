@@ -1,0 +1,113 @@
+bandit16@bandit:~$ nmap localhost -p31000-32000
+
+Starting Nmap 7.40 ( https://nmap.org ) at 2019-12-16 07:02 CET
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00019s latency).
+Not shown: 999 closed ports
+PORT      STATE    SERVICE
+31518/tcp filtered unknown
+31790/tcp open     unknown
+
+
+
+bandit16@bandit:~$ openssl s_client -connect localhost:31790
+CONNECTED(00000003)
+depth=0 CN = localhost
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = localhost
+verify return:1
+---
+Certificate chain
+ 0 s:/CN=localhost
+   i:/CN=localhost
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIICBjCCAW+gAwIBAgIEbSNYOzANBgkqhkiG9w0BAQUFADAUMRIwEAYDVQQDDAls
+b2NhbGhvc3QwHhcNMTkxMTI2MDMzNzA3WhcNMjAxMTI1MDMzNzA3WjAUMRIwEAYD
+VQQDDAlsb2NhbGhvc3QwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMK/1fWi
+3jCBydYlpk1fH5e96vpfdBFXtNXo8foquNUmvdFleKOUIFova64TG6KP6FVzEsV9
+xvda7w7HWLYV9n6mX+QUTOFCRAGGrfLMyVtbzbn4B/QHaN6VUpF6nSeKys/H9LW8
+jUrW2NaIrMXyOkmcrRHTNt96sGyIwYEOJfJfAgMBAAGjZTBjMBQGA1UdEQQNMAuC
+CWxvY2FsaG9zdDBLBglghkgBhvhCAQ0EPhY8QXV0b21hdGljYWxseSBnZW5lcmF0
+ZWQgYnkgTmNhdC4gU2VlIGh0dHBzOi8vbm1hcC5vcmcvbmNhdC8uMA0GCSqGSIb3
+DQEBBQUAA4GBAFe9QZAhX0RNQIJ92lHIyuh85LlUGfKQPr4psE3tXdrcX9bV0Ici
+PRSaFzX8hlBHcwtNmgJjmv5JmyFi7vyIx6JOKf4Eu+Hnxd0SQ2S8090PIM6cg8eS
+2viDh3dTUeY7vIGqK/p/TXi3n4YVnpd6uzkCyGUmK+37FRjQOYbZvnt/
+-----END CERTIFICATE-----
+subject=/CN=localhost
+issuer=/CN=localhost
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 1019 bytes and written 269 bytes
+Verification error: self signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES256-GCM-SHA384
+Server public key is 1024 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES256-GCM-SHA384
+    Session-ID: 409EF569393EF87DF39B88AD71F8A2375E00AFD133F1DFDAEB7FDAEA53D92F2D
+    Session-ID-ctx: 
+    Master-Key: E45B486B9C972A07B617FB2CF30E60C546D8BB11D84B603FE623C9E7001B2872C47336CDCA554EECB4708A7C0BF6776F
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 7200 (seconds)
+    TLS session ticket:
+    0000 - 63 2b 91 29 36 5b 10 08-a3 16 68 1e e1 f3 bd 40   c+.)6[....h....@
+    0010 - 58 7c 60 ef 00 5a 82 da-c2 71 06 a0 01 eb 50 3b   X|`..Z...q....P;
+    0020 - 1f bf c5 b3 21 21 75 1b-a4 4a 25 43 25 82 8a 5b   ....!!u..J%C%..[
+    0030 - c3 d7 73 c9 68 ee 3d a7-1f 32 c5 45 07 06 19 58   ..s.h.=..2.E...X
+    0040 - ea 40 46 86 b3 f8 79 bd-8a 07 a2 f7 e3 6e b6 18   .@F...y......n..
+    0050 - 84 d9 90 82 52 5f 15 3a-fe 47 46 4d b9 23 f1 18   ....R_.:.GFM.#..
+    0060 - ea f5 0d 4d b2 e8 d8 b8-d8 ab 8c 5c 50 db a6 19   ...M.......\P...
+    0070 - 7c 8d 87 2e 46 a0 1b cb-bb b5 ab 3d 71 f4 e8 77   |...F......=q..w
+    0080 - 85 20 8a 21 f7 ff 06 41-f0 0a 3d 63 f6 65 ba ca   . .!...A..=c.e..
+    0090 - de 65 06 73 ef 58 16 ee-c5 ec 77 ff 82 90 85 7b   .e.s.X....w....{
+
+    Start Time: 1576476359
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self signed certificate)
+    Extended master secret: yes
+---
+cluFn7wTiGryunymYOu4RcffSxQluehd
+Correct!
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
+imZzeyGC0gtZPGujUSxiJSWI/oTqexh+cAMTSMlOJf7+BrJObArnxd9Y7YT2bRPQ
+Ja6Lzb558YW3FZl87ORiO+rW4LCDCNd2lUvLE/GL2GWyuKN0K5iCd5TbtJzEkQTu
+DSt2mcNn4rhAL+JFr56o4T6z8WWAW18BR6yGrMq7Q/kALHYW3OekePQAzL0VUYbW
+JGTi65CxbCnzc/w4+mqQyvmzpWtMAzJTzAzQxNbkR2MBGySxDLrjg0LWN6sK7wNX
+x0YVztz/zbIkPjfkU1jHS+9EbVNj+D1XFOJuaQIDAQABAoIBABagpxpM1aoLWfvD
+KHcj10nqcoBc4oE11aFYQwik7xfW+24pRNuDE6SFthOar69jp5RlLwD1NhPx3iBl
+J9nOM8OJ0VToum43UOS8YxF8WwhXriYGnc1sskbwpXOUDc9uX4+UESzH22P29ovd
+d8WErY0gPxun8pbJLmxkAtWNhpMvfe0050vk9TL5wqbu9AlbssgTcCXkMQnPw9nC
+YNN6DDP2lbcBrvgT9YCNL6C+ZKufD52yOQ9qOkwFTEQpjtF4uNtJom+asvlpmS8A
+vLY9r60wYSvmZhNqBUrj7lyCtXMIu1kkd4w7F77k+DjHoAXyxcUp1DGL51sOmama
++TOWWgECgYEA8JtPxP0GRJ+IQkX262jM3dEIkza8ky5moIwUqYdsx0NxHgRRhORT
+8c8hAuRBb2G82so8vUHk/fur85OEfc9TncnCY2crpoqsghifKLxrLgtT+qDpfZnx
+SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd
+HCctNi/FwjulhttFx/rHYKhLidZDFYeiE/v45bN4yFm8x7R/b0iE7KaszX+Exdvt
+SghaTdcG0Knyw1bpJVyusavPzpaJMjdJ6tcFhVAbAjm7enCIvGCSx+X3l5SiWg0A
+R57hJglezIiVjv3aGwHwvlZvtszK6zV6oXFAu0ECgYAbjo46T4hyP5tJi93V5HDi
+Ttiek7xRVxUl+iU7rWkGAXFpMLFteQEsRr7PJ/lemmEY5eTDAFMLy9FL2m9oQWCg
+R8VdwSk8r9FGLS+9aKcV5PI/WEKlwgXinB3OhYimtiG2Cg5JCqIZFHxD6MjEGOiu
+L8ktHMPvodBwNsSBULpG0QKBgBAplTfC1HOnWiMGOU3KPwYWt0O6CdTkmJOmL8Ni
+blh9elyZ9FsGxsgtRBXRsqXuz7wtsQAgLHxbdLq/ZJQ7YfzOKU4ZxEnabvXnvWkU
+YOdjHdSOoKvDQNWu6ucyLRAWFuISeXw9a/9p7ftpxm0TSgyvmfLF2MIAEwyzRqaM
+77pBAoGAMmjmIJdjp+Ez8duyn3ieo36yrttF5NSsJLAbxFpdlc1gvtGCWW+9Cq0b
+dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
+vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
+-----END RSA PRIVATE KEY-----
+
+closed
+bandit16@bandit:~$ 
