@@ -1,0 +1,23 @@
+leviathan7@leviathan:~$ ls
+CONGRATULATIONS
+leviathan7@leviathan:~$ cat CONGRATULATIONS 
+Well Done, you seem to have used a *nix system before, now try something more serious.
+(Please don't post writeups, solutions or spoilers about the games on the web. Thank you!)
+leviathan7@leviathan:~$ 
+
+
+
+blooper
+
+b3twiise@phoenix:~/OTW/leviathan$ print "%d", 0x1bd3
+"my" variable $file masks earlier declaration in same scope at /usr/bin/print line 339.
+Use of uninitialized value $code in concatenation (.) or string at /usr/bin/print line 356, <READER> line 1.
+Use of uninitialized value $code in concatenation (.) or string at /usr/bin/print line 356, <READER> line 2.
+Error: no such file "%d,"
+Error: no such file "0x1bd3"
+b3twiise@phoenix:~/OTW/leviathan$ printf "%d", 0x1bd3
+7123,b3twiise@phoenix:~/OTW/leviathan$ printf "%d" 0x1bd3
+7123b3twiise@phoenix:~/OTW/leviathan$ ls
+
+
+Could not see the results on went online to google hex2dec

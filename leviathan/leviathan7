@@ -1,0 +1,210 @@
+ltrace and strace are not helping
+
+
+
+
+(gdb) set disassembly-flavor intel
+(gdb) disas main
+Dump of assembler code for function main:
+   0x0804853b <+0>:     lea    ecx,[esp+0x4]
+   0x0804853f <+4>:     and    esp,0xfffffff0
+   0x08048542 <+7>:     push   DWORD PTR [ecx-0x4]
+   0x08048545 <+10>:    push   ebp
+   0x08048546 <+11>:    mov    ebp,esp
+   0x08048548 <+13>:    push   ebx
+   0x08048549 <+14>:    push   ecx
+   0x0804854a <+15>:    sub    esp,0x10
+   0x0804854d <+18>:    mov    eax,ecx
+   0x0804854f <+20>:    mov    DWORD PTR [ebp-0xc],0x1bd3
+   0x08048556 <+27>:    cmp    DWORD PTR [eax],0x2
+   0x08048559 <+30>:    je     0x804857b <main+64>
+   0x0804855b <+32>:    mov    eax,DWORD PTR [eax+0x4]
+   0x0804855e <+35>:    mov    eax,DWORD PTR [eax]
+   0x08048560 <+37>:    sub    esp,0x8
+   0x08048563 <+40>:    push   eax
+   0x08048564 <+41>:    push   0x8048660
+   0x08048569 <+46>:    call   0x80483b0 <printf@plt>
+   0x0804856e <+51>:    add    esp,0x10
+   0x08048571 <+54>:    sub    esp,0xc
+   0x08048574 <+57>:    push   0xffffffff
+   0x08048576 <+59>:    call   0x80483f0 <exit@plt>
+   0x0804857b <+64>:    mov    eax,DWORD PTR [eax+0x4]
+   0x0804857e <+67>:    add    eax,0x4
+   0x08048581 <+70>:    mov    eax,DWORD PTR [eax]
+   0x08048583 <+72>:    sub    esp,0xc
+   0x08048586 <+75>:    push   eax
+   0x08048587 <+76>:    call   0x8048420 <atoi@plt>
+   0x0804858c <+81>:    add    esp,0x10
+   0x0804858f <+84>:    cmp    eax,DWORD PTR [ebp-0xc]
+---Type <return> to continue, or q <return> to quit---
+   0x08048592 <+87>:    jne    0x80485bf <main+132>
+   0x08048594 <+89>:    call   0x80483c0 <geteuid@plt>
+   0x08048599 <+94>:    mov    ebx,eax
+   0x0804859b <+96>:    call   0x80483c0 <geteuid@plt>
+   0x080485a0 <+101>:   sub    esp,0x8
+   0x080485a3 <+104>:   push   ebx
+   0x080485a4 <+105>:   push   eax
+   0x080485a5 <+106>:   call   0x8048400 <setreuid@plt>
+   0x080485aa <+111>:   add    esp,0x10
+   0x080485ad <+114>:   sub    esp,0xc
+   0x080485b0 <+117>:   push   0x804867a
+   0x080485b5 <+122>:   call   0x80483e0 <system@plt>
+   0x080485ba <+127>:   add    esp,0x10
+   0x080485bd <+130>:   jmp    0x80485cf <main+148>
+   0x080485bf <+132>:   sub    esp,0xc
+   0x080485c2 <+135>:   push   0x8048682
+   0x080485c7 <+140>:   call   0x80483d0 <puts@plt>
+   0x080485cc <+145>:   add    esp,0x10
+   0x080485cf <+148>:   mov    eax,0x0
+   0x080485d4 <+153>:   lea    esp,[ebp-0x8]
+   0x080485d7 <+156>:   pop    ecx
+   0x080485d8 <+157>:   pop    ebx
+   0x080485d9 <+158>:   pop    ebp
+   0x080485da <+159>:   lea    esp,[ecx-0x4]
+   0x080485dd <+162>:   ret  
+
+
+
+
+On line 18 we see a hex being casually dropped. We check. it is 4 digit in decimal.
+
+
+
+
+
+
+
+End of assembler dump.
+(gdb) b * 0x08048556\ 
+Invalid character '\' in expression.
+(gdb) b * 0x08048556 
+Breakpoint 1 at 0x8048556
+(gdb) b * 0x0804858f
+Breakpoint 2 at 0x804858f
+(gdb) r
+Starting program: /home/leviathan6/leviathan6 
+
+Breakpoint 1, 0x08048556 in main ()
+(gdb) i r
+eax            0xffffd5c0       -10816
+ecx            0xffffd5c0       -10816
+edx            0xffffd5e4       -10780
+ebx            0x0      0
+esp            0xffffd590       0xffffd590
+ebp            0xffffd5a8       0xffffd5a8
+esi            0x1      1
+edi            0xf7fc5000       -134459392
+eip            0x8048556        0x8048556 <main+27>
+eflags         0x286    [ PF SF IF ]
+cs             0x23     35
+ss             0x2b     43
+ds             0x2b     43
+es             0x2b     43
+fs             0x0      0
+gs             0x63     99
+(gdb) x $eip
+0x8048556 <main+27>:    0x74023883
+(gdb) x /x $eip
+0x8048556 <main+27>:    0x74023883
+(gdb) x /i $eip
+=> 0x8048556 <main+27>: cmp    DWORD PTR [eax],0x2
+(gdb) client_loop: send disconnect: Broken pipe
+b3twiise@phoenix:~/OTW/leviathan$ ./connect.sh leviathan6
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+leviathan6@leviathan.labs.overthewire.org's password: 
+Linux leviathan 4.18.12 x86_64 GNU/Linux
+               
+      ,----..            ,----,          .---. 
+     /   /   \         ,/   .`|         /. ./|
+    /   .     :      ,`   .'  :     .--'.  ' ;
+   .   /   ;.  \   ;    ;     /    /__./ \ : |
+  .   ;   /  ` ; .'___,/    ,' .--'.  '   \' .
+  ;   |  ; \ ; | |    :     | /___/ \ |    ' ' 
+  |   :  | ; | ' ;    |.';  ; ;   \  \;      : 
+  .   |  ' ' ' : `----'  |  |  \   ;  `      |
+  '   ;  \; /  |     '   :  ;   .   \    .\  ; 
+   \   \  ',  /      |   |  '    \   \   ' \ |
+    ;   :    /       '   :  |     :   '  |--"  
+     \   \ .'        ;   |.'       \   \ ;     
+  www. `---` ver     '---' he       '---" ire.org     
+               
+              
+Welcome to OverTheWire!
+
+If you find any problems, please report them to Steven or morla on
+irc.overthewire.org.
+
+--[ Playing the games ]--
+
+  This machine might hold several wargames. 
+  If you are playing "somegame", then:
+
+    * USERNAMES are somegame0, somegame1, ...
+    * Most LEVELS are stored in /somegame/.
+    * PASSWORDS for each level are stored in /etc/somegame_pass/.
+
+  Write-access to homedirectories is disabled. It is advised to create a
+  working directory with a hard-to-guess name in /tmp/.  You can use the
+  command "mktemp -d" in order to generate a random and hard to guess
+  directory in /tmp/.  Read-access to both /tmp/ and /proc/ is disabled
+  so that users can not snoop on eachother. Files and directories with 
+  easily guessable or short names will be periodically deleted!
+
+  Please play nice:
+      
+    * don't leave orphan processes running
+    * don't leave exploit-files laying around
+    * don't annoy other players
+    * don't post passwords or spoilers
+    * again, DONT POST SPOILERS! 
+      This includes writeups of your solution on your blog or website!
+
+--[ Tips ]--
+
+  This machine has a 64bit processor and many security-features enabled
+  by default, although ASLR has been switched off.  The following
+  compiler flags might be interesting:
+
+    -m32                    compile for 32bit
+    -fno-stack-protector    disable ProPolice
+    -Wl,-z,norelro          disable relro 
+
+  In addition, the execstack tool can be used to flag the stack as
+  executable on ELF binaries.
+
+  Finally, network-access is limited for most levels by a local
+  firewall.
+
+--[ Tools ]--
+
+ For your convenience we have installed a few usefull tools which you can find
+ in the following locations:
+
+    * pwndbg (https://github.com/pwndbg/pwndbg) in /usr/local/pwndbg/
+    * peda (https://github.com/longld/peda.git) in /usr/local/peda/
+    * gdbinit (https://github.com/gdbinit/Gdbinit) in /usr/local/gdbinit/
+    * pwntools (https://github.com/Gallopsled/pwntools)
+    * radare2 (http://www.radare.org/)
+    * checksec.sh (http://www.trapkit.de/tools/checksec.html) in /usr/local/bin/checksec.sh
+
+--[ More information ]--
+
+  For more information regarding individual wargames, visit
+  http://www.overthewire.org/wargames/
+
+  For support, questions or comments, contact us through IRC on
+  irc.overthewire.org #wargames.
+
+  Enjoy your stay!
+
+leviathan6@leviathan:~$ ls
+leviathan6
+leviathan6@leviathan:~$ ./leviathan6 7123
+$ cat /etc/leviathan_pass/leviathan7
+ahy7MaeBo9
+$ id
+uid=12007(leviathan7) gid=12006(leviathan6) groups=12006(leviathan6)
+$ exit
+leviathan6@leviathan:~$ strings leviathan6 | less
+leviathan6@leviathan:~$ 

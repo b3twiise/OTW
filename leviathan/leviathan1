@@ -1,0 +1,10 @@
+leviathan0@leviathan:~/.backup$ grep -i pass bookmarks.html | awk '{print $14}' | 'sed s/"//g'
+-bash: sed s/"//g: No such file or directory
+leviathan0@leviathan:~/.backup$ grep -i pass bookmarks.html | awk '{print $14}' | sed 's/"//g'
+
+rioGegei8m
+leviathan0@leviathan:~/.backup$ grep -i pass bookmarks.html | awk '{print $14}' | tr -d '"'
+
+rioGegei8m
+leviathan0@leviathan:~/.backup$ 
+

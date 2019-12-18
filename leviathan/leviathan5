@@ -1,0 +1,85 @@
+leviathan4@leviathan:~$ ls
+leviathan4@leviathan:~$ ls -la
+total 24
+drwxr-xr-x  3 root root       4096 Aug 26 22:26 .
+drwxr-xr-x 10 root root       4096 Aug 26 22:26 ..
+-rw-r--r--  1 root root        220 May 15  2017 .bash_logout
+-rw-r--r--  1 root root       3526 May 15  2017 .bashrc
+-rw-r--r--  1 root root        675 May 15  2017 .profile
+dr-xr-x---  2 root leviathan4 4096 Aug 26 22:26 .trash
+leviathan4@leviathan:~$ cd .trash/
+leviathan4@leviathan:~/.trash$ ls
+bin
+leviathan4@leviathan:~/.trash$ ./bin
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 
+leviathan4@leviathan:~/.trash$ a=./bin
+leviathan4@leviathan:~/.trash$ $a
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 
+leviathan4@leviathan:~/.trash$ for i in $a; do echo -en "\0$(printf %o  $((2#$i)))" ; done
+-bash: 2#./bin: syntax error: invalid arithmetic operator (error token is "./bin")
+leviathan4@leviathan:~/.trash$ for i in $a; do echo a ; done
+a
+leviathan4@leviathan:~/.trash$ for i in $a; do echo $i ; done
+./bin
+leviathan4@leviathan:~/.trash$ for i in echo $a; do echo $i ; done
+echo
+./bin
+leviathan4@leviathan:~/.trash$ for i in `echo $a`; do echo $i ; done
+./bin
+leviathan4@leviathan:~/.trash$ echo $a
+./bin
+leviathan4@leviathan:~/.trash$ echo `$a`
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+leviathan4@leviathan:~/.trash$ a=`echo $a`
+leviathan4@leviathan:~/.trash$ $a
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 
+leviathan4@leviathan:~/.trash$ for i in $a; do echo $i ; done
+./bin
+leviathan4@leviathan:~/.trash$ for i in echo $a; do echo $i ; done
+echo
+./bin
+leviathan4@leviathan:~/.trash$ for i in `echo $a`; do echo $i ; done
+./bin
+leviathan4@leviathan:~/.trash$ $a
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 
+leviathan4@leviathan:~/.trash$ $a | for i in $a; do echo $i ; done
+./bin
+leviathan4@leviathan:~/.trash$ $a 
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 
+leviathan4@leviathan:~/.trash$ ls
+bin
+leviathan4@leviathan:~/.trash$ ./bin
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010 
+leviathan4@leviathan:~/.trash$ ./bin | "\0$(printf %o  $((2#$i)))" 
+-bash: 2#./bin: syntax error: invalid arithmetic operator (error token is "./bin")
+-bash: \0: command not found
+leviathan4@leviathan:~/.trash$ b=`./bin`
+leviathan4@leviathan:~/.trash$ $b
+-bash: 01010100: command not found
+leviathan4@leviathan:~/.trash$ echo $b
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+leviathan4@leviathan:~/.trash$ echo $b | for i in $b; do echo $i ; done
+01010100
+01101001
+01110100
+01101000
+00110100
+01100011
+01101111
+01101011
+01100101
+01101001
+00001010
+leviathan4@leviathan:~/.trash$ echo $b | for i in $b; do echo -en "\0$(printf %o  $((2#$i)))" ; done
+Tith4cokei
+leviathan4@leviathan:~/.trash$ 
+
+
+
+
+
+
+
+
+command below still does not make much sense to me
+for i in $a; do echo -en "\0$(printf %o  $((2#$i)))" ; done
