@@ -3,9 +3,9 @@ import re
 import requests
 import sys
 
-print sys.argv
+# print sys.argv
 lvl = re.search(r"\d+", sys.argv[0]).group()
-print lvl
+# print lvl
 currentPass = ""
 
 def makeGetConnection(target="", headers={}, post=False, data="",cookies=""):
