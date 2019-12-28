@@ -55,6 +55,18 @@ def unescap_thml(contents):
 	return ret
 
 
+def print_and_store_password(passwd):
+
+	nextLlv = int(lvl) + 1
+	with open( ("natas" + str(nextLlv) +".pass") , "w")as f:
+		f.write(passwd + "\n")
+	print "The password for natas" + str(nextLlv) + " is: " + passwd
+
+
+
+
+
+
 
 if __name__ == '__main__':
 	main()
