@@ -10,7 +10,6 @@ currentPass = ""
 
 def makeGetConnection(target="", headers={}, post=False, data="",cookies=""):
 	global currentPass
-	print "cookies=======================", cookies
 	s=requests.Session()
 	print "Usage: <sys.argv[0]>"
 	name = "natas"
@@ -30,6 +29,7 @@ def makeGetConnection(target="", headers={}, post=False, data="",cookies=""):
 	# print "=================="
 	# print r.headers
 	# print "==================="
+	return r #temp
 	if target == "":
 		return  r.text
 	return r
@@ -51,7 +51,7 @@ def unescap_thml(contents):
 
 	# }
 	for line in contents.split("<br"):
-		ret+=line.replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">")
+		ret+=line.replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">").replace("&amp;", "&")
 	return ret
 
 
