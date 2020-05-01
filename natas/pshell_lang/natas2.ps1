@@ -17,7 +17,7 @@ get-content ./temp.text | Select-String -pattern "(\w{20,})" > res
 del ./temp.text 
 del res
 
-Write-host $a
+# Write-host $a
 echo $a
 
 
