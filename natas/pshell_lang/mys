@@ -1,0 +1,27 @@
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : <html>
+                    <head>
+                    <!-- This stuff in the header has nothing to do with the level -->
+                    <link rel="stylesheet" type="text/css" href="http://natas.labs.overthewire.org/css/level.css">
+                    <link rel="stylesheet" h…
+RawContent        : HTTP/1.1 200 OK
+                    Date: Fri, 01 May 2020 14:41:53 GMT
+                    Server: Apache/2.4.10
+                    Server: (Debian)
+                    Vary: Accept-Encoding
+                    Connection: close
+                    Content-Length: 1065
+                    Content-Type: text/html; charset=UTF-8
+                    
+                    <html>
+                    <…
+Headers           : {[Date, System.String[]], [Server, System.String[]], [Vary, System.String[]], [Connection, System.String[]]…}
+Images            : {}
+InputFields       : {}
+Links             : {@{outerHTML=<a href="index-source.html">View sourcecode</a>; tagName=A; href=index-source.html}}
+RawContentLength  : 1065
+RelationLink      : {}
+
+
