@@ -17,9 +17,10 @@ $headers = @{ Authorization = "Basic $encodedCreds"}
 
 #visit /s3cr3t/ and see users.txt. We just get it
 $url = "http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt"
+# echo $url The password for natas4 is Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
 
 $req = Invoke-WebRequest -uri $url -Method Get -Headers $headers 
-$passwordLine = ($req | Select-String -allmatches "(.+\w{20,})")
+$passwordLine = ($req | Select-String -allmatches "(.+\w{20,})") #Regex for password
 
 $nameAndPassw = ($passwordLine.matches[0]) -split(":")
 write-host "The password for $($nameAndPassw[0]) is $($nameAndPassw[1])"

